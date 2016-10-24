@@ -49,10 +49,10 @@ defmodule KVServer.Command do
         {:ok, "OK\r\n"}
     end
 
-    def run({:get, bucket}) do
+    def run({:get, bucket, key}) do
         lookup bucket, fn pid ->
             value = KV.Bucket.get(pid, key)
-            {:ok, "OK\r\n"}
+            {:ok, "#{value}\r\nOK\r\n"}
         end
     end
 
