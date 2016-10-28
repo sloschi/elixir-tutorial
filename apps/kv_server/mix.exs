@@ -18,8 +18,11 @@ defmodule KVServer.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :kv],
-     mod: {KVServer, []}]
+    [
+      applications: [:logger, :kv],
+      env: [port: 4040],
+      mod: {KVServer, []}
+    ]
   end
 
   # Dependencies can be Hex packages:
